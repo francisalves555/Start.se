@@ -48,7 +48,7 @@ class Empresas(models.Model):
         return mark_safe('<span class="badge bg-primary">Em captação</span>')
     @property
     def valuation(self):
-        return f'{(100 * self.valor) / self.percentual_equity:.2f}'
+        return float(f'{(100 * self.valor) / self.percentual_equity:.2f}')
     
 class Documento(models.Model):
     empresa = models.ForeignKey(Empresas, on_delete=models.DO_NOTHING)
